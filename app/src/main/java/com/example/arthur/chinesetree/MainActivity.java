@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
-
+    // TextInput
     public void init() {
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         txtShow = (TextView) findViewById(R.id.txtShow);
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         txtShow.setText(editTextString);
     }
 
+
+    // get things from server
     protected void onResume() {
         super.onResume();
 
