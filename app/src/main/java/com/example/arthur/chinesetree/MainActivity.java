@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -25,32 +24,12 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     Context context;
 
-    Button btnSubmit;
-    TextView txtShow;
-    EditText txtInput;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        init();
     }
 
-    // TextInput
-    public void init() {
-        btnSubmit = (Button) findViewById(R.id.btnSubmit);
-        txtShow = (TextView) findViewById(R.id.txtShow);
-        txtInput = (EditText) findViewById(R.id.txtInput);
-    }
-
-    public void btnSubmitClick(View view) {
-        String editTextString = txtInput.getText().toString();
-        txtShow.setText(editTextString);
-    }
-
-
-    // get things from server
     protected void onResume() {
         super.onResume();
 
@@ -61,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         //--------------------------------------
         // 按鈕點擊後, 執行取出及顯示資料動作
-        //--------- btnServer 按鈕事件----------------//
+        //--------- btnServer 按鈕事件 ----------------//
         Button btnServer = (Button) findViewById(R.id.btnServer);
         btnServer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +49,22 @@ public class MainActivity extends AppCompatActivity {
                 getAndDisplayData();
             }
         });
-        //--------- btnServer 按鈕事件----------------//
+        //--------- btnServer 按鈕事件 ----------------//
+
+        //--------- btnSubmit 按鈕事件 ----------------//
+        Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText editText = (EditText) findViewById(R.id.txtInput);
+                Toast.makeText(
+                        view.getContext(),
+                        editText.getText().toString(),
+                        Toast.LENGTH_LONG
+                ).show();
+            }
+        });
+        //--------- btnSubmit 按鈕事件 ----------------//
     }
 
     @Override
@@ -150,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         //=====================
         // (2)取得輸入之區段編號
         //=====================
-        TextView segIdText = (TextView) findViewById(R.id.txtInput);
+        EditText segIdText = (EditText) findViewById(R.id.txtInput);
         String segId = segIdText.getText().toString().trim();
 
 

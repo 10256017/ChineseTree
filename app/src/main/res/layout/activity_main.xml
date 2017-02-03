@@ -66,14 +66,8 @@
         android:id="@+id/myListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/txtShow" />
-
-    <TextView
-        android:id="@+id/txtShow"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/btnServer"
-        android:layout_marginTop="20dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp" />
+
 </RelativeLayout>
