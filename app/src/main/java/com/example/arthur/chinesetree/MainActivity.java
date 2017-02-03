@@ -147,6 +147,11 @@ public class MainActivity extends AppCompatActivity {
         EditText segIdText = (EditText) findViewById(R.id.txtInput);
         String segId = segIdText.getText().toString().trim();
 
+        if (segId.equals("")) {
+            Toast.makeText(context, "你必須輸入一些東西啊～", Toast.LENGTH_LONG).show();
+            return;
+        }
+
 
         //==================================================
         // (3)將網址及POST參數傳給主機, 向網站發出POST請求
