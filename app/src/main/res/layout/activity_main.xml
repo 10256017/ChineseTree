@@ -11,62 +11,69 @@
     tools:context="com.example.arthur.chinesetree.MainActivity">
 
     <Button
-        android:text="Voice"
+        android:id="@+id/btnVoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:id="@+id/btnVoice"
-        android:layout_below="@+id/btnOrc"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/btnOrc"
+        android:layout_marginTop="15dp"
+        android:text="Voice" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/txtInput"
-        android:layout_alignParentEnd="true"
-        android:hint="輸入文字" />
-
-    <Button
-        android:text="ocr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtInput"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:hint="輸入文字"
+        android:inputType="textPersonName" />
+
+    <Button
         android:id="@+id/btnOrc"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:id="@+id/btnSubmit"
-        android:layout_below="@+id/btnVoice"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:onClick="btnSubmitClick" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtInput"
+        android:layout_marginTop="17dp"
+        android:text="ocr" />
 
     <Button
-        android:text="get something from server"
+        android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSubmit"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp"
+        android:layout_below="@+id/btnVoice"
+        android:layout_marginTop="13dp"
+        android:onClick="btnSubmitClick"
+        android:text="submit" />
+
+    <Button
         android:id="@+id/btnServer"
-        android:layout_alignParentEnd="true" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnSubmit"
+        android:layout_marginTop="17dp"
+        android:text="get something from server" />
+
+    <ListView
+        android:id="@+id/myListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/txtShow" />
 
     <TextView
+        android:id="@+id/txtShow"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/txtShow"
-        android:layout_below="@+id/btnServer"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnServer"
         android:layout_marginTop="20dp" />
 </RelativeLayout>
