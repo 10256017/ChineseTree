@@ -20,17 +20,34 @@ import java.util.HashMap;
 import com.example.arthur.chinesetree.async.MyAsyncTask;
 import com.example.arthur.chinesetree.data.Common;
 
+import android.widget.EditText;
+
 public class MainActivity extends AppCompatActivity {
     Context context;
+
+    Button btnSubmit;
+    TextView txtShow;
+    EditText txtInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        init();
     }
 
+
+    public void init() {
+        btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        txtShow = (TextView) findViewById(R.id.txtShow);
+        txtInput = (EditText) findViewById(R.id.txtInput);
+    }
+
+    public void btnSubmitClick(View view) {
+        String editTextString = txtInput.getText().toString();
+        txtShow.setText(editTextString);
+    }
 
     protected void onResume() {
         super.onResume();
@@ -43,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //--------------------------------------
         // 按鈕點擊後, 執行取出及顯示資料動作
         //---------OCR按鈕事件----------------//
-        Button ocr =(Button)findViewById(R.id.btnOrc);
+        Button ocr = (Button) findViewById(R.id.btnOrc);
         ocr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         MyAsyncTask myAsyncTask = new MyAsyncTask(context, new MyAsyncTask.TaskListener() {
             @Override
             public void onFinished(String result) {
-                try{
+                try {
                     if (result == null) {
                         Toast.makeText(context, "無資料!", Toast.LENGTH_SHORT).show();
                         return;
@@ -93,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
                     //-----------------------------------------------------------
                     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
 
-                    for(int i=0; i<jsonArray.length(); i++){
-                        HashMap<String,String> item = new HashMap<>();
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        HashMap<String, String> item = new HashMap<>();
                         item.put("Name", jsonArray.getJSONObject(i).getString("Name"));
                         item.put("Add", jsonArray.getJSONObject(i).getString("Add"));
                         arrayList.add(item);
@@ -103,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     //------------------------------------------
                     // 準備一個ListView, 用來顯示ArrayList內容
                     //------------------------------------------
-                    ListView listView=(ListView)findViewById(R.id.myListView);
+                    ListView listView = (ListView) findViewById(R.id.myListView);
 
                     //----------------------------------------------------
                     // 準備一個橋接資料及版型的Adapter物件
@@ -131,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
         //=====================
         // (2)取得輸入之區段編號
         //=====================
-        TextView segIdText=(TextView)findViewById(R.id.txtInput);
-        String segId=segIdText.getText().toString().trim();
+        TextView segIdText = (TextView) findViewById(R.id.txtInput);
+        String segId = segIdText.getText().toString().trim();
 
 
         //==================================================
