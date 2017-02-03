@@ -61,16 +61,16 @@ public class MainActivity extends AppCompatActivity {
 
         //--------------------------------------
         // 按鈕點擊後, 執行取出及顯示資料動作
-        //---------OCR按鈕事件----------------//
-        Button ocr = (Button) findViewById(R.id.btnServer);
-        ocr.setOnClickListener(new View.OnClickListener() {
+        //--------- btnServer 按鈕事件----------------//
+        Button btnServer = (Button) findViewById(R.id.btnServer);
+        btnServer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 呼叩執行取出及顯示資料動作函式
                 getAndDisplayData();
             }
         });
-        //---------OCR按鈕事件----------------//
+        //--------- btnServer 按鈕事件----------------//
     }
 
     @Override
