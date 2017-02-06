@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ChineseTree</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_practice">PracticeActivity</string>
 </resources>
